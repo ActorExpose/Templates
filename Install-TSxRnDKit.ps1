@@ -1,5 +1,5 @@
 ﻿#Installer for TSxRnD
-Write-Host "Installing TSxRnD 1.0"
+Write-Host "Installing TSxRnD 1.1"
 
 #Install Module for Plaster
 Install-Module -Name Plaster -SkipPublisherCheck -ErrorAction Stop
