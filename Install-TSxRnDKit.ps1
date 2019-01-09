@@ -23,9 +23,5 @@ foreach($File in $files){
     Invoke-WebRequest "https://raw.githubusercontent.com/TrueSec-Infra/Templates/master/$File" -OutFile $env:TEMP\$File
     Copy-Item -Path $env:TEMP\$File -Destination $ModuleFolder -Force
 }
-
 Import-Module TSxRnD
-Get-Module -Name TSxRnD
-
-
-
+Get-Module -ListAvailable -Name TSxRnD
