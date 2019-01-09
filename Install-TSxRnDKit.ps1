@@ -16,11 +16,14 @@ Get-Module -ListAvailable -Name Pester
 #Install Module TSxRnD
 $ModuleFolder = "$env:ProgramFiles\WindowsPowerShell\Modules\TSxRnD"
 New-Item -Path $ModuleFolder -ItemType Directory -Force
+New-Item -Path $ModuleFolder\Templates -ItemType Directory -Force
 $Files = "TSxRnD.psd1","TSxRnD.psm1"
+
 foreach($File in $files){
     Invoke-WebRequest "https://raw.githubusercontent.com/TrueSec-Infra/Templates/master/$File" -OutFile $env:TEMP\$File
     Copy-Item -Path $env:TEMP\$File -Destination $ModuleFolder -Force
 }
+
 Import-Module TSxRnD
 Get-Module -Name TSxRnD
 
