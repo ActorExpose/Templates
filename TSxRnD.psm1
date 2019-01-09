@@ -38,7 +38,7 @@ Function New-TSxPowerShellScript{
     $CSVdata = Import-Csv -Path $RootFolder\data.csv
 
     If($TemplateName -eq "Default"){
-        Copy-Item -Path $RootFolder\Source\$TemplateName.ps1 -Destination $Path\$ScriptName -ErrorAction Stop
+        Copy-Item -Path $RootFolder\Templates\$TemplateName.ps1 -Destination $Path\$ScriptName -ErrorAction Stop
     }
 
     If ($Class -eq "Company"){
@@ -73,7 +73,7 @@ Function Set-TSxDefaultUserData{
        $Company,
        $CompanyWeb
     )
-    $RootFolder = "$((Get-Module -Name TSxRnD).ModuleBase)\templates"
+    $RootFolder = "$((Get-Module -Name TSxRnD).ModuleBase)"
     Set-Content -Path "$RootFolder\data.csv" -Value "Author,Twitter,Email,Blog,Company,CompanyWeb" -Force
     Add-Content -Path "$RootFolder\data.csv" -Value "$Author,$Twitter,$Email,$Blog,$Company,$CompanyWeb" -Force
 }
