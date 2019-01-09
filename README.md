@@ -30,7 +30,7 @@ New-TSxPowerShellScript -Path C:\Temp -ScriptName Test1.ps1 -TemplateName Defaul
 ```
 For Company
 ```sh
-New-TSxPowerShellScript -Path C:\Temp -ScriptName Test1.ps1 -TemplateName Default -Class Company
+New-TSxPowerShellScript -Path C:\Temp -ScriptName Test2.ps1 -TemplateName Default -Class Company
 ```
 ### Create new PowerShell Module using Plaster
 To see your templates (and paths)
