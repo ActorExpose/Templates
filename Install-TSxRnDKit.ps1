@@ -22,6 +22,7 @@ foreach($File in $files){
     Copy-Item -Path $env:TEMP\$File -Destination $ModuleFolder -Force
 }
 Import-Module TSxRnD
+Get-Module -Name TSxRnD
 
 
 
