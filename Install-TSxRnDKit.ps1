@@ -12,7 +12,7 @@ New-Item -Path HKCU:\TSx -Force
 New-ItemProperty -Path HKCU:\TSx -Name PlatserTemplatePath -PropertyType String -Value $TSxPlasterTemplatePath -Force -ErrorAction Stop
 
 #Install Module for Plaster
-Install-Module -Name Plaster -SkipPublisherCheck -Force -ErrorAction Stop
+Install-Module -Name Plaster -SkipPublisherCheck -ErrorAction Stop
 
 #Install Module for Plaster
 Install-Module -Name Pester -SkipPublisherCheck -Force -ErrorAction Stop
