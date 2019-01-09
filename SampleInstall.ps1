@@ -17,3 +17,4 @@ New-TSxPowerShellScript -Path C:\Temp -ScriptName Test1.ps1 -TemplateName Defaul
 
 #Get-PlasterTemplate
 Invoke-Plaster -TemplatePath "C:\Program Files\WindowsPowerShell\Modules\Plaster\1.1.3\Templates\NewPowerShellScriptModule" -DestinationPath C:\Temp -Force
+
