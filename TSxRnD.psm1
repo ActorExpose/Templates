@@ -2,6 +2,7 @@
 
 Function Update-TSxTemplates{
     #Download Template folder as ZIP from GitHub
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     Invoke-WebRequest -Uri "https://github.com/TrueSec-Infra/Templates/archive/master.zip" -OutFile $env:TEMP\TSxTemplates.zip
     If((Test-Path $env:TEMP\TSxTemplates.zip) -eq $true){
         Write-Host "Download was successful"
