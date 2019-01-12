@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<plasterManifest
+  schemaVersion="1.1"
+  templateType="Project" xmlns="http://www.microsoft.com/schemas/PowerShell/Plaster/v1">
+  <metadata>
+    <name>NewTSxBasicScript</name>
+    <id>02c27056-9ac1-4c21-bab8-c5bb0e5a5297</id>
+    <version>1.0.0</version>
+    <title>New TSx PowerShell Manifest Script</title>
+    <description>Creates files for a TSx PowerShell script</description>
+    <author>TrueSec</author>
+    <tags>PowerShell, Script, ScriptManifest, TSx</tags>
+  </metadata>
+  <parameters>
+    <parameter name="ScriptName" type="text" prompt="Enter the name of the script" />
+    <parameter name="License" type="choice" store="text" prompt="Select a license for your script" default="0" >
+      <choice label="&amp;MIT" help="Adds MIT to script" value="MIT"/>
+      <choice label="&amp;None" help="No license specified." value="None"/>
+    </parameter>
+    <parameter name='Help' type='choice' prompt='Include Comment Based Help?' default="0">
+      <choice label='&amp;Yes' help='Adds comment based help' value='Yes' />
+      <choice label='&amp;No' help='Does not add comment based help' value='No' />
+    </parameter>
+    <parameter name="BasicFeatures" type="choice" store="text" prompt="Include basic features: function, param, for-each and process?" default="0" >
+      <choice label="&amp;Yes" help="Adds basic features" value="Yes"/>
+      <choice label="&amp;No" help="No features added" value="No"/>
+    </parameter>
+    <parameter name='Pester' type='choice' prompt='Include Pester Test?' default="1">
+      <choice label='&amp;Yes' value='Yes' help='Adds a test script'/>
+      <choice label='&amp;No' value='No' help='Does not add a test script'/>
+    </parameter>
+    <parameter name='Twitter' type='text' prompt='Name of your Twitter handle' default='@TrueSec_se' />
+    <parameter name='Email' type='user-email' prompt='Enter your email address' default='info@truesec.com' />
+    <parameter name='Web' type='text' prompt='URL to your Company or blog' default='www.truesec.com' />
+  </parameters>
+  <content>
+    <message>This NewTSxBasicScript is brought to you by:</message>
+    <message>
+  _______ _____  _    _ ______  _____ ______ _____ 
+ |__   __|  __ \| |  | |  ____|/ ____|  ____/ ____|
+    | |  | |__) | |  | | |__  | (___ | |__ | |     
+    | |  |  _  /| |  | |  __|  \___ \|  __|| |     
+    | |  | | \ \| |__| | |____ ____) | |___| |____ 
+    |_|  |_|  \_\\____/|______|_____/|______\_____|
+
+    </message>
+    <templateFile source='Template.ps1' destination='${PLASTER_PARAM_ScriptName}.ps1'/>
+    <templateFile source='testTemplate.ps1' destination='${PLASTER_PARAM_ScriptName}.tests.ps1' condition='$PLASTER_PARAM_Pester -eq "Yes"' />
+  </content>
+</plasterManifest>
